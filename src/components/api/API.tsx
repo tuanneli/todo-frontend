@@ -19,7 +19,7 @@ export class AuthService {
     }
 
     static async check(): Promise<AxiosResponse<IResponse>> {
-        return $host.get<IResponse>(`http://localhost:5000/api/auth/check`);
+        return $host.get<IResponse>(`${baseURL}/api/auth/check`);
     }
 
     static async logout(): Promise<void> {
