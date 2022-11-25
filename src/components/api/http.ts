@@ -1,7 +1,8 @@
 import {IResponse} from "../types/UserTypes";
 import axios from "axios";
 
-export const baseURL = 'http://localhost:5000';
+// export const baseURL = 'http://localhost:5000';
+export const baseURL = 'https://todo-backend-mu.vercel.app';
 
 const $host = axios.create({
     withCredentials: true,
