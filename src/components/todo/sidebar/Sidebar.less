@@ -1,0 +1,139 @@
+@icon_color: #795548;
+@hover_color: linear-gradient(-45deg, rgba(219, 80, 234, 0.75), rgba(182, 182, 182, 0.75), rgba(37, 209, 239, 0.75));
+@active_color: linear-gradient(45deg, rgba(219, 80, 234, 1), rgba(182, 182, 182, 1), rgba(37, 209, 239, 1));
+
+.container {
+  padding-top: 12px;
+  width: 72px;
+  //background: linear-gradient(-45deg, rgba(219, 80, 234, 0.75), rgba(182, 182, 182, 0.75), rgba(37, 209, 239, 0.75));
+  background-color: white;
+  border-right: 1px solid black;
+  box-shadow: 6px 0px 8px 0px rgba(34, 60, 80, 0.35);
+  min-height: 100vh;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+
+  .box {
+    position: absolute;
+  }
+
+  .container__element {
+    width: 48px;
+    height: 48px;
+    background-color: black;
+    border-radius: 50%;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      border-radius: 15px;
+      //background-color: #998350;
+      background: @hover_color;
+      color: black;
+      transition: .3s ease-in-out;
+
+      .tooltip {
+        visibility: visible;
+      }
+
+      .side__line {
+        transition: .3s ease-in-out;
+        opacity: 1;
+      }
+    }
+
+    &:active {
+      transform: translateY(1.5px);
+      transition: 0s;
+    }
+
+    .side__line {
+      height: 20px;
+      width: 4px;
+      background: @active_color;
+      position: absolute;
+      margin-left: -68px;
+      border-bottom-right-radius: 5px;
+      border-top-right-radius: 5px;
+      opacity: 0;
+    }
+
+    .side__line__active {
+      opacity: 1;
+      height: 40px;
+    }
+  }
+
+  .main__element {
+    color: white;
+    cursor: auto;
+
+    &:hover {
+      //background-color: #745c1a;
+    }
+
+    &:active {
+      transform: translateY(0);
+      transition: 0s;
+    }
+  }
+
+  .division__line {
+    width: 32px;
+    height: 2px;
+    background-color: #36393f;
+    margin: 8px auto;
+  }
+
+  .active__main {
+    border-radius: 15px;
+    background: @active_color;
+    color: white;
+  }
+
+  .active {
+    border-radius: 15px;
+    background: @active_color;
+    color: black;
+  }
+}
+
+.for__tooltip {
+  &:hover {
+    .tooltip {
+      visibility: visible;
+    }
+  ;
+  }
+}
+
+.tooltip {
+  visibility: hidden;
+  display: inline-block;
+  white-space: nowrap;
+  position: absolute;
+  color: white;
+  background-color: #141718;
+  border-radius: 5px;
+  padding: 7px 15px 8px 15px;
+  transform: translateY(-51px);
+  left: 68px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    transform: rotate(45deg);
+    background-color: #141718;
+    margin-left: -17px;
+    margin-top: 6px;
+    padding: 5px;
+    z-index: 1;
+  }
+}

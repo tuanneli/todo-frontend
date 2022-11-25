@@ -1,19 +1,36 @@
-import React from 'react';
+import React, {createContext} from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './index.less';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter} from "react-router-dom";
+import UserStore from "./components/store/UserStore";
+import TodoStore from "./components/store/TodoStore";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    document.getElementById('root') as HTMLElement
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+interface IStore {
+    userStore: UserStore
+    todoStore: TodoStore
+}
+
+const userStore = new UserStore();
+const todoStore = new TodoStore();
+
+export const Context = createContext<IStore>({
+    userStore,
+    todoStore
+})
+
+root.render(
+    <Context.Provider value={{
+        userStore,
+        todoStore
+    }}>
+        <BrowserRouter>
+            <App/>
+        </BrowserRouter>
+    </Context.Provider>
+);

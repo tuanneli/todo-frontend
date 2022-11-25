@@ -1,0 +1,111 @@
+.main-content {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.sidebox {
+
+  width: 100%;
+  height: 100vh;
+  margin: 10px 40px;
+  display: flex;
+  justify-content: center;
+  // position^
+  align-items: center;
+
+  &-left {
+    @media (max-width: 560px) {
+      visibility: hidden;
+    }
+  }
+
+  &-right {
+    @media (max-width: 560px) {
+      position: absolute;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+.form-box {
+
+  max-width: 300px;
+  // position^
+  width: 100%;
+  height: 100vh;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // position^
+
+  &__label {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+
+    &-bottom {
+      margin-top: 10px;
+      width: 100%;
+      font-size: 16px;
+      font-weight: 400;
+      display: flex;
+      justify-content: space-between;
+
+      &__link-text {
+        text-decoration: underline;
+        color: black;
+      }
+    }
+
+  }
+
+  &__input {
+    width: 100%;
+    height: 45px;
+    border-radius: 8px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    font-size: 17px;
+    font-weight: 500;
+    border: 1px solid #000000;
+
+    &::placeholder {
+      color: rgb(98, 98, 98);
+      font-size: 17px;
+      font-weight: 500;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    height: 45px;
+    margin-top: 30px;
+    border-radius: 8px;
+    padding: 0 10px;
+    border: 1px solid rgb(98, 98, 98);
+    background: transparent;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 500;
+
+    &:hover {
+      background: linear-gradient(-45deg, rgba(219, 80, 234, 0.25), rgba(182, 182, 182, 0.25), rgba(37, 209, 239, 0.25));
+    }
+
+    &:active {
+      background: linear-gradient(45deg, rgba(219, 80, 234, 0.5), rgba(182, 182, 182, 0.5), rgba(37, 209, 239, 0.5));
+    }
+  }
+}
